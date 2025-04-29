@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conservatory Student Portal</title>
+  <style>
+    body {
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2, h3 {
+      color: #5a4181;
+    }
+
+    input, select, button {
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .lesson-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      background-color: #5a4181;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3e2a6a;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Home Page (After Successful Login) -->
+    <div id="lessonPage">
+      <h2>Hello, <span id="studentName">Alice</span>!</h2>
+      <label for="lessonSelect">Choose a lesson:</label>
+      <select id="lessonSelect">
+        <option value="">-- Select Lesson --</option>
+        <option value="piano">Piano</option>
+        <option value="theory">Theory</option>
+        <option value="violin">Violin</option>
+      </select>
+
+      <div id="lessonOptions" class="hidden">
+        <h3>Choose an option:</h3>
+        <div class="lesson-buttons">
+          <button>Course Notes</button>
+          <button>Exercises</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simulate successful login and show the home page
+    document.getElementById("lessonPage").style.display = "block";
+    document.getElementById("studentName").innerText = "Alice"; // Example: user logged in as Alice
+    
+    // Simulate lesson selection
+    document.getElementById("lessonSelect").addEventListener("change", function() {
+      const lessonSelect = document.getElementById("lessonSelect").value;
+      if (lessonSelect) {
+        document.getElementById("lessonOptions").classList.remove("hidden");
+      } else {
+        document.getElementById("lessonOptions").classList.add("hidden");
+      }
+    });
+  </script>
+
+</body>
+</html>
